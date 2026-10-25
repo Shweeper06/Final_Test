@@ -1,6 +1,13 @@
 streamlit>=1.50
-scikit-learn==1.6.1
-pandas==2.2.3
-numpy==2.1.3
 plotly>=5.20
 joblib
+
+# Python <= 3.13 : ใช้เวอร์ชันเดียวกับ Colab เพื่อโหลด model_artifacts.joblib ได้ตรง
+scikit-learn==1.6.1; python_version < "3.14"
+pandas==2.2.3; python_version < "3.14"
+numpy==2.1.3; python_version < "3.14"
+
+# Python >= 3.14 : ไม่มี wheel ของเวอร์ชันข้างบน ใช้รุ่นใหม่ แล้วแอปจะฝึกโมเดลใหม่อัตโนมัติ
+scikit-learn>=1.7.2; python_version >= "3.14"
+pandas>=2.3.3; python_version >= "3.14"
+numpy>=2.3.3; python_version >= "3.14"
